@@ -15,15 +15,15 @@ const sendEmail = (emailsIds,subject,html,text)=>{
     
 
     let mailTransporter = nodemailer.createTransport({
-        service:'gmail',
+        service:'outlook',
         auth:{
-            user:"utkarshmalik06@gmail.com",
-            pass:"dhtpxgwvsmuyvsuh"
+            user:"jaikrishnavr@outlook.com",
+            pass:"Gokulkrishnavr@01"
         }
     });
 
     let mailDetails = {
-        from : "utkarshmalik06@gmail.com",
+        from : "jaikrishnavr@outlook.com",
         to:emailsIds,
         subject:subject
     }
