@@ -13,7 +13,30 @@ exports.createTicket = async (req,res)=>{
         requestor:req.userId
     };
 
-    //find a random enginner in approved state and assign this ticket to that engineer
+
+     //find a random enginner in approved state and assign this ticket to that engineer
+    
+     const engineer = await User.find({
+        userTypes:userTypes.engineer,
+        userStatus:userStatus.approved
+    });
+
+     // If engineers are found, randomly select one engineer to assign the ticket
+     if (engineer.length > 0) {
+        const randomIndex = Math.floor(Math.random() * engineer.length);
+        const randomEngineer = engineer[randomIndex];
+        ticketObj.assignee = randomEngineer.userId;
+        console.log(engineer);
+      } else {
+
+        // If no engineer is found, assign the ticket to a default engineer or handle the scenario accordingly
+        ticketObj.assignee = DEFAULT_ENGINEER_ID; // Replace with the ID of the default engineer
+      }
+
+
+
+
+   /* //find a one enginner in approved state and assign this ticket to that engineer
 
     const engineer = await User.findOne({
         userTypes:userTypes.engineer,
@@ -22,7 +45,7 @@ exports.createTicket = async (req,res)=>{
 
     console.log(engineer);
 
-    ticketObj.assignee = engineer.userId;
+    ticketObj.assignee = engineer.userId;*/
 
     try{
         const ticket = await Ticket.create(ticketObj);
