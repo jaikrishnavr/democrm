@@ -21,4 +21,10 @@
     "nodemailer": "^6.9.1",
     "nodemon": "^2.0.20"
   }
-}
+},
+
+"scripts": {
+    "dev": "webpack --config=Scripts/config/webpack.dev.js --watch",
+    "build": "webpack --config=Scripts/config/webpack.prod.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
