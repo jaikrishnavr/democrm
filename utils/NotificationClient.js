@@ -15,7 +15,7 @@ const sendEmail = (emailsIds,subject,html,text)=>{
     
 
     let mailTransporter = nodemailer.createTransport({
-        service:'outlook',
+        service:'gmail',
         auth:{
             user:"jaikrishnavr@outlook.com",
             pass:"Gokulkrishnavr@01"
