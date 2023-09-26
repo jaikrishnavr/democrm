@@ -7,7 +7,7 @@
     "test": "jest",
     "devStart": "nodemon server.js",
     "predeploy" : "npm run build",
-"deploy" : "gh-pages -d build"git 
+"deploy" : "gh-pages -d build"
   },
   "author": "",
   "license": "ISC",
